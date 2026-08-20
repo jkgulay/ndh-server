@@ -18,3 +18,23 @@ export async function getHospitalInfo(
     next(error);
   }
 }
+
+export async function updateHospitalInfo(
+  req: Request,
+  res: Response<ApiResponse<unknown>>,
+  next: NextFunction
+): Promise<void> {
+  try {
+    const hospitalInfo = await HospitalInfoModel.findOneAndUpdate({}, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    if (!hospitalInfo) {
+      res.status(404).json({ success: false, error: "Hospital information not configured" });
+      return;
+    }
+    res.status(200).json({ success: true, data: hospitalInfo });
+  } catch (error) {
+    next(error);
+  }
+}

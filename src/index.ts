@@ -1,6 +1,7 @@
 import cors from "cors";
 import "dotenv/config";
 import express, { type Express } from "express";
+import { UPLOADS_ROOT_DIR } from "./config/uploadStorage";
 import { connectDatabase } from "./config/db";
 import { errorHandler } from "./middleware/errorHandler";
 import { notFound } from "./middleware/notFound";
@@ -12,6 +13,7 @@ function createApp(clientOrigin: string): Express {
   const app = express();
   app.use(cors({ origin: clientOrigin }));
   app.use(express.json());
+  app.use("/uploads", express.static(UPLOADS_ROOT_DIR));
   app.use("/api", apiRouter);
   app.use(notFound);
   app.use(errorHandler);

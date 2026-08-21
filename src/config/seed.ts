@@ -10,18 +10,18 @@ import mongoose from "mongoose";
 const PLACEHOLDER_IMAGE_BASE = "https://placehold.co";
 
 const hospitalInfoSeed = {
-  name: "Northgate District Hospital",
-  tagline: "Caring for our community since 1978",
-  address: "123 Rizal Avenue, Barangay Poblacion, Northgate, Laguna 4030, Philippines",
+  name: "Nasipit District Hospital",
+  tagline: "Caring for our community since 1975",
+  address: "123 Rizal Avenue, Barangay Poblacion, Nasipit, Agusan del Norte, Philippines",
   phone: "(049) 123-4567",
   emergencyHotline: "0917-123-4567",
-  email: "info@northgatedistrict.hospital",
+  email: "info@nasipitdistrict.hospital",
   hours: "Emergency & Trauma: Open 24/7 · OPD: Monday–Saturday, 8:00 AM–5:00 PM",
-  foundedYear: 1978,
-  bedCount: 150,
+  foundedYear: 1975,
+  bedCount: 15,
   departmentCount: 12,
   accreditations: ["DOH-licensed Level II General Hospital", "PhilHealth-accredited"],
-  facebookUrl: "https://facebook.com/northgatedistricthospital",
+  facebookUrl: "https://facebook.com/nasipitdistricthospital",
   // Fictional address has no real embeddable map; the client falls back to a placeholder image.
   googleMapsEmbedUrl: undefined,
 };
@@ -30,7 +30,7 @@ const announcementSeeds = [
   {
     title: "Free Flu Vaccination Drive This Weekend",
     content:
-      "Northgate District Hospital will hold a free flu vaccination drive for senior citizens and children under 5 this Saturday, 8:00 AM to 3:00 PM, at the OPD lobby. Walk-ins are welcome; please bring a valid ID and, for minors, a barangay health record.",
+      "Nasipit District Hospital will hold a free flu vaccination drive for senior citizens and children under 5 this Saturday, 8:00 AM to 3:00 PM, at the OPD lobby. Walk-ins are welcome; please bring a valid ID and, for minors, a barangay health record.",
     isActive: true,
     publishedAt: new Date("2026-08-15"),
   },
@@ -113,7 +113,7 @@ const serviceSeeds = [
   {
     name: "Ambulance & Trauma Response",
     description:
-      "Emergency transport and on-site stabilization for critical patients within Northgate and neighboring barangays.",
+      "Emergency transport and on-site stabilization for critical patients within Nasipit and neighboring barangays.",
     category: "Emergency & Trauma",
     operatingHours: "Open 24/7",
     isActive: true,
@@ -191,7 +191,7 @@ const careerSeeds = [
     description:
       "We are seeking a licensed Staff Nurse to join our Emergency Department, providing direct patient care and supporting rapid trauma response.",
     requirements: "Registered Nurse license, BLS/ACLS certification, minimum 1 year of clinical experience preferred.",
-    howToApply: "Send your resume and license copy to careers@northgatedistrict.hospital with the subject 'Staff Nurse Application'.",
+    howToApply: "Send your resume and license copy to careers@nasipitdistrict.hospital with the subject 'Staff Nurse Application'.",
     isActive: true,
     postedAt: new Date("2026-08-12"),
   },
@@ -202,7 +202,7 @@ const careerSeeds = [
     description:
       "Join our laboratory team performing hematology, chemistry, and microbiology testing to support accurate and timely diagnoses.",
     requirements: "Licensed Medical Technologist, PRC license in good standing, experience with laboratory information systems a plus.",
-    howToApply: "Submit your application through the HR office or email careers@northgatedistrict.hospital.",
+    howToApply: "Submit your application through the HR office or email careers@nasipitdistrict.hospital.",
     isActive: true,
     postedAt: new Date("2026-08-08"),
   },
@@ -213,7 +213,7 @@ const careerSeeds = [
     description:
       "Operate X-ray and ultrasound equipment to produce diagnostic images, working alongside our radiology and physician teams.",
     requirements: "Licensed Radiologic Technologist, PRC license, willingness to work rotating shifts.",
-    howToApply: "Email your resume and license to careers@northgatedistrict.hospital with the subject 'Radiologic Technologist Application'.",
+    howToApply: "Email your resume and license to careers@nasipitdistrict.hospital with the subject 'Radiologic Technologist Application'.",
     isActive: true,
     postedAt: new Date("2026-08-01"),
   },

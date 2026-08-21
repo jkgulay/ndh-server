@@ -36,3 +36,4 @@ function createImageUploadMiddleware(subdir: string): RequestHandler {
 
 export const uploadStaffImageMiddleware = createImageUploadMiddleware("staff");
 export const uploadAnnouncementImageMiddleware = createImageUploadMiddleware("announcements");
+export const uploadServiceImageMiddleware = createImageUploadMiddleware("services");

@@ -124,6 +124,7 @@ const serviceSeeds = [
       "Round-the-clock emergency care for trauma, cardiac events, and acute illness, staffed by a dedicated emergency medicine team.",
     category: "Emergency & Trauma",
     operatingHours: "Open 24/7",
+    imageUrl: "/components/hospitalnas.png",
     isActive: true,
   },
   {
@@ -132,6 +133,7 @@ const serviceSeeds = [
       "Emergency transport and on-site stabilization for critical patients within Nasipit and neighboring barangays.",
     category: "Emergency & Trauma",
     operatingHours: "Open 24/7",
+    imageUrl: "/components/healthcare1.jpg",
     isActive: true,
   },
   {
@@ -140,6 +142,7 @@ const serviceSeeds = [
       "A dedicated bay for stabilizing severe trauma cases before transfer to surgery or the intensive care unit.",
     category: "Emergency & Trauma",
     operatingHours: "Open 24/7",
+    imageUrl: "/components/pexels-karola-g-4386466.jpg",
     isActive: true,
   },
   {
@@ -148,6 +151,7 @@ const serviceSeeds = [
       "Walk-in and scheduled consultations with general practitioners for common illnesses, checkups, and referrals.",
     category: "Outpatient/OPD",
     operatingHours: "Mon–Sat, 8:00 AM–5:00 PM",
+    imageUrl: "/components/healthcare1.jpg",
     isActive: true,
   },
   {
@@ -156,6 +160,7 @@ const serviceSeeds = [
       "Scheduled outpatient consultations with visiting specialists across internal medicine, pediatrics, and surgery.",
     category: "Outpatient/OPD",
     operatingHours: "Mon–Fri, 8:00 AM–4:00 PM",
+    imageUrl: "/components/healthcare2.jpg",
     isActive: true,
   },
   {
@@ -164,6 +169,7 @@ const serviceSeeds = [
       "Same-day treatment for minor wounds, sutures, and outpatient procedures that do not require hospital admission.",
     category: "Outpatient/OPD",
     operatingHours: "Mon–Sat, 8:00 AM–5:00 PM",
+    imageUrl: "/components/pexels-gabby-k-5841806.jpg",
     isActive: true,
   },
   {
@@ -172,6 +178,7 @@ const serviceSeeds = [
       "Blood chemistry, hematology, urinalysis, and microbiology testing with same-day results for most panels.",
     category: "Diagnostic & Laboratory",
     operatingHours: "Mon–Sat, 6:00 AM–8:00 PM",
+    imageUrl: "/components/healthcare2.jpg",
     isActive: true,
   },
   {
@@ -179,6 +186,7 @@ const serviceSeeds = [
     description: "Rapid antigen and PCR testing for common infectious diseases, with results available within 24 hours.",
     category: "Diagnostic & Laboratory",
     operatingHours: "Mon–Sat, 7:00 AM–4:00 PM",
+    imageUrl: "/components/pexels-gabby-k-5841806.jpg",
     isActive: true,
   },
   {
@@ -187,6 +195,7 @@ const serviceSeeds = [
       "Routine prenatal monitoring, ultrasounds, and health education for expectant mothers throughout pregnancy.",
     category: "Maternal & Child Health",
     operatingHours: "Mon–Fri, 8:00 AM–11:00 AM",
+    imageUrl: "/components/pexels-karola-g-4386466.jpg",
     isActive: true,
   },
   {
@@ -195,6 +204,7 @@ const serviceSeeds = [
       "Well-baby checkups, growth monitoring, and the full national immunization schedule for infants and children.",
     category: "Maternal & Child Health",
     operatingHours: "Tue, Thu, Sat, 1:00 PM–5:00 PM",
+    imageUrl: "/components/nasipitpics.png",
     isActive: true,
   },
 ];

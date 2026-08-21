@@ -19,6 +19,7 @@ const serviceSchema = new Schema(
     description: { type: String, required: true },
     category: { type: String, required: true, enum: SERVICE_CATEGORIES },
     operatingHours: { type: String },
+    imageUrl: { type: String },
     isActive: { type: Boolean, required: true, default: true },
   },
   { timestamps: { createdAt: true, updatedAt: false } }

@@ -12,7 +12,7 @@ const PLACEHOLDER_IMAGE_BASE = "https://placehold.co";
 const hospitalInfoSeed = {
   name: "Nasipit District Hospital",
   tagline: "Caring for our community since 1975",
-  address: "123 Rizal Avenue, Barangay Poblacion, Nasipit, Agusan del Norte, Philippines",
+  address: "D-6 Kinabjangan, Nasipit, Agusan Del Norte, Philippines",
   phone: "(049) 123-4567",
   emergencyHotline: "0917-123-4567",
   email: "info@nasipitdistrict.hospital",

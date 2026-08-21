@@ -4,23 +4,23 @@ import multer from "multer";
 import path from "path";
 
 export const UPLOADS_ROOT_DIR = path.join(__dirname, "..", "..", "uploads");
-export const DOCTOR_UPLOADS_DIR = path.join(UPLOADS_ROOT_DIR, "doctors");
+export const STAFF_UPLOADS_DIR = path.join(UPLOADS_ROOT_DIR, "staff");
 
 const MAX_IMAGE_SIZE_BYTES = 5 * 1024 * 1024;
 const ALLOWED_IMAGE_MIME_TYPES = new Set(["image/jpeg", "image/png", "image/webp", "image/gif"]);
 
-fs.mkdirSync(DOCTOR_UPLOADS_DIR, { recursive: true });
+fs.mkdirSync(STAFF_UPLOADS_DIR, { recursive: true });
 
-const doctorImageStorage = multer.diskStorage({
-  destination: (_req, _file, callback) => callback(null, DOCTOR_UPLOADS_DIR),
+const staffImageStorage = multer.diskStorage({
+  destination: (_req, _file, callback) => callback(null, STAFF_UPLOADS_DIR),
   filename: (_req, file, callback) => {
     const extension = path.extname(file.originalname).toLowerCase();
     callback(null, `${crypto.randomUUID()}${extension}`);
   },
 });
 
-export const uploadDoctorImageMiddleware = multer({
-  storage: doctorImageStorage,
+export const uploadStaffImageMiddleware = multer({
+  storage: staffImageStorage,
   limits: { fileSize: MAX_IMAGE_SIZE_BYTES },
   fileFilter: (_req, file, callback) => {
     if (!ALLOWED_IMAGE_MIME_TYPES.has(file.mimetype)) {

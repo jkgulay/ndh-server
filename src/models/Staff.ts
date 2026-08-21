@@ -1,9 +1,9 @@
 import { Schema, model, type InferSchemaType } from "mongoose";
 
-const doctorSchema = new Schema(
+const staffSchema = new Schema(
   {
     name: { type: String, required: true, trim: true },
-    specialization: { type: String, required: true, trim: true },
+    role: { type: String, required: true, trim: true },
     schedule: { type: String, required: true },
     imageUrl: { type: String },
     bio: { type: String },
@@ -12,6 +12,6 @@ const doctorSchema = new Schema(
   { timestamps: { createdAt: true, updatedAt: false } }
 );
 
-export type Doctor = InferSchemaType<typeof doctorSchema>;
+export type Staff = InferSchemaType<typeof staffSchema>;
 
-export const DoctorModel = model("Doctor", doctorSchema);
+export const StaffModel = model("Staff", staffSchema, "staff");

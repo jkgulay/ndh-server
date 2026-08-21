@@ -2,9 +2,9 @@ import "dotenv/config";
 import { connectDatabase } from "./db";
 import { AnnouncementModel } from "../models/Announcement";
 import { CareerModel } from "../models/Career";
-import { DoctorModel } from "../models/Doctor";
 import { HospitalInfoModel } from "../models/HospitalInfo";
 import { ServiceModel } from "../models/Service";
+import { StaffModel } from "../models/Staff";
 import mongoose from "mongoose";
 
 const PLACEHOLDER_IMAGE_BASE = "https://placehold.co";
@@ -50,10 +50,10 @@ const announcementSeeds = [
   },
 ];
 
-const doctorSeeds = [
+const staffSeeds = [
   {
     name: "Dr. Maria Santos",
-    specialization: "Internal Medicine",
+    role: "Internal Medicine",
     schedule: "Mon, Wed, Fri · 9:00 AM–12:00 PM",
     imageUrl: `${PLACEHOLDER_IMAGE_BASE}/400x400?text=Dr.+Santos`,
     bio: "Dr. Santos has over 15 years of experience in internal medicine, with a focus on chronic disease management for adult and geriatric patients.",
@@ -61,7 +61,7 @@ const doctorSeeds = [
   },
   {
     name: "Dr. Antonio Reyes",
-    specialization: "Pediatrics",
+    role: "Pediatrics",
     schedule: "Tue, Thu, Sat · 1:00 PM–5:00 PM",
     imageUrl: `${PLACEHOLDER_IMAGE_BASE}/400x400?text=Dr.+Reyes`,
     bio: "Dr. Reyes specializes in newborn and childhood care, including well-baby checkups, immunizations, and developmental screening.",
@@ -69,7 +69,7 @@ const doctorSeeds = [
   },
   {
     name: "Dr. Liza Fernandez",
-    specialization: "Obstetrics & Gynecology",
+    role: "Obstetrics & Gynecology",
     schedule: "Mon–Fri · 8:00 AM–11:00 AM",
     imageUrl: `${PLACEHOLDER_IMAGE_BASE}/400x400?text=Dr.+Fernandez`,
     bio: "Dr. Fernandez provides prenatal, delivery, and postnatal care, and leads the hospital's maternal health outreach programs.",
@@ -77,7 +77,7 @@ const doctorSeeds = [
   },
   {
     name: "Dr. Carlos Villanueva",
-    specialization: "General Surgery",
+    role: "General Surgery",
     schedule: "Mon, Tue, Thu · 10:00 AM–2:00 PM",
     imageUrl: `${PLACEHOLDER_IMAGE_BASE}/400x400?text=Dr.+Villanueva`,
     bio: "Dr. Villanueva has performed over a thousand surgical procedures, ranging from routine appendectomies to complex trauma repair.",
@@ -85,7 +85,7 @@ const doctorSeeds = [
   },
   {
     name: "Dr. Grace Tan",
-    specialization: "Emergency Medicine",
+    role: "Emergency Medicine",
     schedule: "Rotating shifts · 24/7 Emergency Department",
     imageUrl: `${PLACEHOLDER_IMAGE_BASE}/400x400?text=Dr.+Tan`,
     bio: "Dr. Tan leads the Emergency Department's trauma response team and coordinates with local barangay health units for disaster preparedness.",
@@ -93,10 +93,26 @@ const doctorSeeds = [
   },
   {
     name: "Dr. Ramon Cruz",
-    specialization: "Orthopedics",
+    role: "Orthopedics",
     schedule: "Wed, Fri · 9:00 AM–1:00 PM",
     imageUrl: `${PLACEHOLDER_IMAGE_BASE}/400x400?text=Dr.+Cruz`,
     bio: "Dr. Cruz treats fractures, joint injuries, and musculoskeletal conditions, and oversees the hospital's rehabilitation referral program.",
+    isActive: true,
+  },
+  {
+    name: "Elena Morales, RN",
+    role: "Head Nurse",
+    schedule: "Mon–Fri · 7:00 AM–3:00 PM",
+    imageUrl: `${PLACEHOLDER_IMAGE_BASE}/400x400?text=E.+Morales`,
+    bio: "Elena leads the nursing staff across all wards, coordinating patient care schedules and mentoring newly licensed nurses.",
+    isActive: true,
+  },
+  {
+    name: "Joel Dizon",
+    role: "Administrative Officer",
+    schedule: "Mon–Fri · 8:00 AM–5:00 PM",
+    imageUrl: `${PLACEHOLDER_IMAGE_BASE}/400x400?text=J.+Dizon`,
+    bio: "Joel oversees hospital records, patient admissions, and coordinates front-desk operations for a smoother patient experience.",
     isActive: true,
   },
 ];
@@ -229,7 +245,7 @@ async function seed(): Promise<void> {
   await Promise.all([
     HospitalInfoModel.deleteMany({}),
     AnnouncementModel.deleteMany({}),
-    DoctorModel.deleteMany({}),
+    StaffModel.deleteMany({}),
     ServiceModel.deleteMany({}),
     CareerModel.deleteMany({}),
   ]);
@@ -237,7 +253,7 @@ async function seed(): Promise<void> {
 
   await HospitalInfoModel.create(hospitalInfoSeed);
   await AnnouncementModel.insertMany(announcementSeeds);
-  await DoctorModel.insertMany(doctorSeeds);
+  await StaffModel.insertMany(staffSeeds);
   await ServiceModel.insertMany(serviceSeeds);
   await CareerModel.insertMany(careerSeeds);
 

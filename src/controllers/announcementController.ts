@@ -1,5 +1,6 @@
 import { AnnouncementModel } from "../models/Announcement";
 import { createCrudController } from "../utils/crudController";
+import { createImageUploadHandler } from "../utils/imageUploadHandler";
 
 const announcementCrud = createCrudController(AnnouncementModel, {
   sort: { publishedAt: -1 },
@@ -12,3 +13,5 @@ export const getAnnouncementById = announcementCrud.getById;
 export const createAnnouncement = announcementCrud.create;
 export const updateAnnouncement = announcementCrud.update;
 export const deleteAnnouncement = announcementCrud.remove;
+
+export const uploadAnnouncementImage = createImageUploadHandler("announcements");

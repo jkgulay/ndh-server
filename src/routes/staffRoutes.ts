@@ -10,6 +10,7 @@ import {
 } from "../controllers/staffController";
 import { requireAdminAuth } from "../middleware/requireAdminAuth";
 import { buildCrudRoutes } from "../utils/crudRoutes";
+import { wrapUploadMiddleware } from "../utils/wrapUploadMiddleware";
 
 export const staffRoutes = buildCrudRoutes(
   {
@@ -24,16 +25,7 @@ export const staffRoutes = buildCrudRoutes(
     router.post(
       "/upload-image",
       requireAdminAuth,
-      (req, res, next) => {
-        uploadStaffImageMiddleware(req, res, (error: unknown) => {
-          if (error) {
-            const message = error instanceof Error ? error.message : "Unable to upload image";
-            res.status(400).json({ success: false, error: message });
-            return;
-          }
-          next();
-        });
-      },
+      wrapUploadMiddleware(uploadStaffImageMiddleware),
       uploadStaffImage
     );
   }

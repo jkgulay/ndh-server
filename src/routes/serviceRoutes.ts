@@ -1,4 +1,3 @@
-import { Router } from "express";
 import {
   createService,
   deleteService,
@@ -7,13 +6,13 @@ import {
   getServices,
   updateService,
 } from "../controllers/serviceController";
-import { requireAdminAuth } from "../middleware/requireAdminAuth";
+import { buildCrudRoutes } from "../utils/crudRoutes";
 
-export const serviceRoutes = Router();
-
-serviceRoutes.get("/", getServices);
-serviceRoutes.get("/admin", requireAdminAuth, getAllServicesForAdmin);
-serviceRoutes.get("/:id", getServiceById);
-serviceRoutes.post("/", requireAdminAuth, createService);
-serviceRoutes.put("/:id", requireAdminAuth, updateService);
-serviceRoutes.delete("/:id", requireAdminAuth, deleteService);
+export const serviceRoutes = buildCrudRoutes({
+  getActive: getServices,
+  getAllForAdmin: getAllServicesForAdmin,
+  getById: getServiceById,
+  create: createService,
+  update: updateService,
+  remove: deleteService,
+});

@@ -1,4 +1,3 @@
-import { Router } from "express";
 import {
   createAnnouncement,
   deleteAnnouncement,
@@ -7,13 +6,13 @@ import {
   getAnnouncements,
   updateAnnouncement,
 } from "../controllers/announcementController";
-import { requireAdminAuth } from "../middleware/requireAdminAuth";
+import { buildCrudRoutes } from "../utils/crudRoutes";
 
-export const announcementRoutes = Router();
-
-announcementRoutes.get("/", getAnnouncements);
-announcementRoutes.get("/admin", requireAdminAuth, getAllAnnouncementsForAdmin);
-announcementRoutes.get("/:id", getAnnouncementById);
-announcementRoutes.post("/", requireAdminAuth, createAnnouncement);
-announcementRoutes.put("/:id", requireAdminAuth, updateAnnouncement);
-announcementRoutes.delete("/:id", requireAdminAuth, deleteAnnouncement);
+export const announcementRoutes = buildCrudRoutes({
+  getActive: getAnnouncements,
+  getAllForAdmin: getAllAnnouncementsForAdmin,
+  getById: getAnnouncementById,
+  create: createAnnouncement,
+  update: updateAnnouncement,
+  remove: deleteAnnouncement,
+});

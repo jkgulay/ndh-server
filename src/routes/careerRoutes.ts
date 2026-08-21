@@ -1,4 +1,3 @@
-import { Router } from "express";
 import {
   createCareer,
   deleteCareer,
@@ -7,13 +6,13 @@ import {
   getCareers,
   updateCareer,
 } from "../controllers/careerController";
-import { requireAdminAuth } from "../middleware/requireAdminAuth";
+import { buildCrudRoutes } from "../utils/crudRoutes";
 
-export const careerRoutes = Router();
-
-careerRoutes.get("/", getCareers);
-careerRoutes.get("/admin", requireAdminAuth, getAllCareersForAdmin);
-careerRoutes.get("/:id", getCareerById);
-careerRoutes.post("/", requireAdminAuth, createCareer);
-careerRoutes.put("/:id", requireAdminAuth, updateCareer);
-careerRoutes.delete("/:id", requireAdminAuth, deleteCareer);
+export const careerRoutes = buildCrudRoutes({
+  getActive: getCareers,
+  getAllForAdmin: getAllCareersForAdmin,
+  getById: getCareerById,
+  create: createCareer,
+  update: updateCareer,
+  remove: deleteCareer,
+});

@@ -45,3 +45,33 @@ export async function submitFeedback(
     next(error);
   }
 }
+
+export async function getAllFeedbackForAdmin(
+  _req: Request,
+  res: Response<ApiResponse<unknown>>,
+  next: NextFunction
+): Promise<void> {
+  try {
+    const feedback = await FeedbackModel.find().sort({ createdAt: -1 });
+    res.status(200).json({ success: true, data: feedback });
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function deleteFeedback(
+  req: Request<{ id: string }>,
+  res: Response<ApiResponse<never>>,
+  next: NextFunction
+): Promise<void> {
+  try {
+    const feedback = await FeedbackModel.findByIdAndDelete(req.params.id);
+    if (!feedback) {
+      res.status(404).json({ success: false, error: "Feedback not found" });
+      return;
+    }
+    res.status(200).json({ success: true });
+  } catch (error) {
+    next(error);
+  }
+}
